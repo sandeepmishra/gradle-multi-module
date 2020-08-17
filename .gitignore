@@ -4,3 +4,4 @@
 .idea
 .gradle
 *.iml
+/gradle/wrapper

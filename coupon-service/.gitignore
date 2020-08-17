@@ -5,3 +5,4 @@
 .gradle
 *.iml
 build/
+/gradle/wrapper/
