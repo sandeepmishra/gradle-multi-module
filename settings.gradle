@@ -7,3 +7,5 @@ include 'product-service'
 
 include 'eureka-server'
 include 'zuul-proxy-gateway'
+include 'library-event-producer'
+include 'library-event-consumer'

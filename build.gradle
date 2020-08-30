@@ -5,6 +5,7 @@ plugins {
 }
 
 
+
 ext {
     springBootVersion = '2.2.6.RELEASE'
     set('springCloudVersion', "Hoxton.SR4")
@@ -55,10 +56,11 @@ subprojects {
         implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix'
         implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon'
         annotationProcessor 'org.projectlombok:lombok'
+        implementation 'org.springframework.boot:spring-boot-starter-hateoas'
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
-        testCompile group: 'junit', name: 'junit', version: '4.12'
+        //testCompile group: 'junit', name: 'junit', version: '4.12'
     }
 
     dependencyManagement {

@@ -1,0 +1,32 @@
+server:
+  servlet:
+    context-path: /v1
+
+eureka:
+  client:
+    enabled: false
+spring:
+  profiles:
+    active: local
+---
+spring:
+  profiles: local
+  kafka:
+    template:
+      default-topic: library-events
+    producer:
+      bootstrap-servers:  localhost:9092, localhost:9094, localhost:9094
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer # Library events id is integer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer # publishing the message in string format
+    admin:
+      properties:
+        bootstrap.servers: localhost:9092, localhost:9094, localhost:9094
+
+---
+spring:
+  profiles: dev
+  kafka:
+    producer:
+      bootstrap-servers:  localhost:9092, localhost:9094, localhost:9094
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer # Library events id is integer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer # publishing the message in string format

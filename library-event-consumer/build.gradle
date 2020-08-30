@@ -1,0 +1,25 @@
+
+dependencies {
+    implementation 'org.apache.kafka:kafka-streams'
+    implementation 'org.springframework.kafka:spring-kafka'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+}
+
+
+sourceSets{
+    test{
+        java {
+            srcDirs 'src/test/java'
+        }
+    }
+}
+tasks.withType(Test) {
+    systemProperty 'eureka.client.enabled', 'false'
+}
+test{
+    useJUnitPlatform()
+}
+
