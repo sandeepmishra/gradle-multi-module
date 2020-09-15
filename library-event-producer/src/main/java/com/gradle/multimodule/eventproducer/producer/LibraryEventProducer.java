@@ -51,7 +51,7 @@ public class LibraryEventProducer {
 
 
     // Asynchronous way of sending message
-    public void sendLibraryEventAsynchronous_2(LibraryEvent libraryEvent) throws JsonProcessingException {
+    public ListenableFuture<SendResult<Integer, String>> sendLibraryEventAsynchronous_2(LibraryEvent libraryEvent) throws JsonProcessingException {
 
         Integer key =libraryEvent.getLibraryEventId();
         String value=objectMapper.writeValueAsString(libraryEvent);
@@ -69,6 +69,7 @@ public class LibraryEventProducer {
                 handleSuccess(key, value, result);
             }
         });
+        return sendResultListenableFuture;
     }
 
     private ProducerRecord<Integer, String > buildProducerRecord(String topic, Integer key, String value){

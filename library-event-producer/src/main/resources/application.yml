@@ -15,6 +15,9 @@ spring:
       bootstrap-servers:  localhost:9092, localhost:9094, localhost:9094
       key-serializer: org.apache.kafka.common.serialization.IntegerSerializer # Library events id is integer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer # publishing the message in string format
+      acks: all
+      retries: 10
+
     admin:
       properties:
         bootstrap.servers: localhost:9092, localhost:9094, localhost:9094

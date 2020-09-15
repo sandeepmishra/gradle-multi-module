@@ -11,9 +11,7 @@ dependencies {
 
 sourceSets{
     test{
-        java {
-            srcDirs 'src/test/java'
-        }
+        java.srcDirs = ['src/test/java', 'src/test/java/integration']
     }
 }
 tasks.withType(Test) {
