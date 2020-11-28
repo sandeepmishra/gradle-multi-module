@@ -10,7 +10,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
-@RestController
 public class UserServicesApplication {
 
     public static void main(String[] args) {

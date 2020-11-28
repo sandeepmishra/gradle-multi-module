@@ -4,6 +4,7 @@ include 'user-services'
 include 'admin-services'
 include 'coupon-service'
 include 'product-service'
+include 'reactive-webflux'
 
 include 'eureka-server'
 include 'zuul-proxy-gateway'
