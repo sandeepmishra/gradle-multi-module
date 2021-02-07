@@ -17,9 +17,9 @@ public class CouponController {
     private CouponRepository couponRepository;
 
     @PostMapping("/coupon")
-    public Coupon createCoupon(@RequestBody Coupon coupon){
+    public ResponseEntity<Coupon> createCoupon(@RequestBody Coupon coupon){
 
-        return couponRepository.save(coupon);
+        return new ResponseEntity<>(couponRepository.save(coupon), HttpStatus.CREATED);
     }
 
     @GetMapping("/coupon/{code}")
@@ -27,8 +27,8 @@ public class CouponController {
         return new ResponseEntity<>(couponRepository.findByCode(code), HttpStatus.OK);
     }
 
-    @GetMapping("/coupon/{code}")
-    public ResponseEntity<List<Coupon>> getCoupons(@PathVariable String code){
-        return new ResponseEntity<>(couponRepository.findAll(), HttpStatus.OK);
+    @GetMapping("/coupon")
+    public ResponseEntity<List<Coupon>> getCoupons(){
+        return new ResponseEntity<List<Coupon>>(couponRepository.findAll(), HttpStatus.OK);
     }
 }
